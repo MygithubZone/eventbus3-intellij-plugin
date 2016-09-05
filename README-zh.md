@@ -11,6 +11,7 @@
 - 修改包名和方法名以适应 `EventBus 3.X`
 - 替换一个在新版的 `intellij plugin SDK` 已经不存在的类
 - 增加若干 `try-catch` ，防止插件崩溃
+
 ---
 
 
