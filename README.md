@@ -1,5 +1,18 @@
 # eventbus3-intellij-plugin
 
+## Change Log
+
+### 2016-09-05
+Originator did not reply our's issue,I try to let it work
+
+- Fix for EventBus3 new package name
+
+
+原作者没有回应issue，我尝试让这个插件可以工作
+
+- 主要BUg修复工作：修改包名和方法名以适应EventBus 3.X
+
+
 Plugin to navigate between events posted by [EventBus](https://github.com/greenrobot/EventBus).
 
 ### `Post` to `@Subscribe` and `@Subscribe` to `Post`

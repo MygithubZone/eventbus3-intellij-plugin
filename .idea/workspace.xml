@@ -2,63 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb861e8-e1e4-4bf3-9544-350083f247f6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventbus3-intellij-plugin.jar" afterPath="$PROJECT_DIR$/eventbus3-intellij-plugin.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/CompositeActiveComponent.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/CompositeActiveComponent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider$2.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/Filter.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/Filter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PingEDT$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PingEDT$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PingEDT.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PingEDT.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PsiUtils.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/PsiUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ReceiverFilter.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ReceiverFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/SenderFilter.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/SenderFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$10.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$11$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$11$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$11.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$12.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$13$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$13$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$13.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$14$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$14$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$14.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$15.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$16.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$17.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$18.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$19.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$2.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$20.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$20.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21$1$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$21.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$3.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$4.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$5.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$6.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$7.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$8.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$9.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyModel$1.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyModel$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyModel.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MySpeedSearch.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MySpeedSearch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyTable.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$MyTable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$StringNode.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction$StringNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesTableCellRenderer.class" afterPath="$PROJECT_DIR$/out/production/eventbus3-intellij-plugin/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesTableCellRenderer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventbus3-intellij-plugin.iml" afterPath="$PROJECT_DIR$/eventbus3-intellij-plugin.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider.java" afterPath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/PsiUtils.java" afterPath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/PsiUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/SenderFilter.java" afterPath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/SenderFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.java" afterPath="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="eventbus3-intellij-plugin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,7 +23,28 @@
     <favorites_list name="eventbus3-intellij-plugin" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="28" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -99,6 +65,7 @@
         <option value="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/EventBus3LineMarkerProvider.java" />
         <option value="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -110,8 +77,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="161" />
-    <option name="y" value="28" />
+    <option name="x" value="54" />
+    <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="767" />
   </component>
@@ -433,10 +400,18 @@
       <option name="presentableId" value="Default" />
       <updated>1473054052907</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.Fix package name &#10;2.add some try-catch">
+      <created>1473064706968</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1473064706968</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="161" y="28" width="1400" height="767" extended-state="0" />
+    <frame x="54" y="23" width="1400" height="767" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -445,7 +420,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5029455" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -473,6 +448,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.Fix package name &#10;2.add some try-catch" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.Fix package name &#10;2.add some try-catch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -811,10 +790,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="240">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="28" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
