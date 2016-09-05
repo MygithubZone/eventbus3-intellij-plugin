@@ -1,5 +1,7 @@
 # eventbus3-intellij-plugin
 
+Plugin to navigate between events posted by [EventBus](https://github.com/greenrobot/EventBus).
+
 [中文说明](./README-zh.md)
 
 ## Change Log
@@ -8,10 +10,12 @@
 Originator did not reply our's issue,I try to let it work
 
 - Fix for EventBus3 new package name
+- Fix a class that don't exist in the last `intellij plugin SDK`
+- Add some `try-catch` , So it don't shutdown
 
 ----
 
-Plugin to navigate between events posted by [EventBus](https://github.com/greenrobot/EventBus).
+
 
 ### `Post` to `@Subscribe` and `@Subscribe` to `Post`
 
