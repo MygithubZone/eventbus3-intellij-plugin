@@ -83,6 +83,13 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
+/**
+ * modify by likfe ( https://github.com/likfe/ ) in 2016/09/05
+ *
+ * add ShowUsagesAction(), if Registering actions in the plugin.xml file,ShowUsagesAction must have ShowUsagesAction()
+ *
+ */
+
 public class ShowUsagesAction extends AnAction implements PopupAction{
     private static final int USAGES_PAGE_SIZE = 100;
 
@@ -125,6 +132,18 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
     };
     @NotNull private final UsageViewSettings myUsageViewSettings;
     @Nullable private Runnable mySearchEverywhereRunnable;
+
+    public ShowUsagesAction() {
+        setInjectedContext(true);
+        final UsageViewSettings usageViewSettings = UsageViewSettings.getInstance();
+        myUsageViewSettings = new UsageViewSettings();
+        myUsageViewSettings.loadState(usageViewSettings);
+        myUsageViewSettings.GROUP_BY_FILE_STRUCTURE = false;
+        myUsageViewSettings.GROUP_BY_MODULE = false;
+        myUsageViewSettings.GROUP_BY_PACKAGE = false;
+        myUsageViewSettings.GROUP_BY_USAGE_TYPE = false;
+        myUsageViewSettings.GROUP_BY_SCOPE = false;
+    }
 
     public ShowUsagesAction(Filter filter) {
         this.filter = filter;
@@ -1047,7 +1066,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         return newFileEditor instanceof TextEditor ? ((TextEditor)newFileEditor).getEditor() : null;
     }
 
-    private static class MyTable extends JBTableWithHintProvider implements DataProvider {
+    private static class MyTable extends JTable implements DataProvider {
         @Override
         public boolean getScrollableTracksViewportWidth() {
             return true;
@@ -1064,9 +1083,9 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
             return null;
         }
 
-        @Override
+//        @Override
         @Nullable
-        protected PsiElement getPsiElementForHint(Object selectedValue) {
+        PsiElement getPsiElementForHint(Object selectedValue) {
             if (selectedValue instanceof UsageNode) {
                 final Usage usage = ((UsageNode)selectedValue).getUsage();
                 if (usage instanceof UsageInfo2UsageAdapter) {
@@ -1084,7 +1103,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
     static class StringNode extends UsageNode {
         private final Object myString;
 
-        public StringNode(Object string) {
+        StringNode(Object string) {
             super(NullUsage.INSTANCE, new UsageViewTreeModelBuilder(new UsageViewPresentation(), UsageTarget.EMPTY_ARRAY));
             myString = string;
         }

@@ -21,6 +21,13 @@ import java.util.List;
 
 /**
  * Created by kgmyshin on 15/06/08.
+ *
+ * modify by likfe ( https://github.com/likfe/ ) in 2016/09/05
+ *
+ * 1.fix package name for EventBus
+ *
+ * 2. try use `GlobalSearchScope.projectScope(project)` to just search for project,but get NullPointerException,
+ * the old use `GlobalSearchScope.allScope(project)` ,it will search in project and libs,so slow
  */
 public class EventBus3LineMarkerProvider implements LineMarkerProvider {
 
@@ -35,7 +42,8 @@ public class EventBus3LineMarkerProvider implements LineMarkerProvider {
                     if (psiElement instanceof PsiMethod) {
                         Project project = psiElement.getProject();
                         JavaPsiFacade javaPsiFacade = JavaPsiFacade.getInstance(project);
-                        PsiClass eventBusClass = javaPsiFacade.findClass("de.greenrobot.event.EventBus", GlobalSearchScope.allScope(project));
+                        PsiClass eventBusClass = javaPsiFacade.findClass("org.greenrobot.eventbus.EventBus", GlobalSearchScope.allScope(project));
+                        //PsiClass eventBusClass = javaPsiFacade.findClass("org.greenrobot.eventbus.EventBus", GlobalSearchScope.projectScope(project));
                         PsiMethod postMethod = eventBusClass.findMethodsByName("post", false)[0];
                         PsiMethod method = (PsiMethod) psiElement;
                         PsiClass eventClass = ((PsiClassType) method.getParameterList().getParameters()[0].getTypeElement().getType()).resolve();

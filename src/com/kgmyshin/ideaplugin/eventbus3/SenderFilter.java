@@ -1,19 +1,30 @@
 package com.kgmyshin.ideaplugin.eventbus3;
 
+import com.intellij.openapi.compiler.CompilationException;
+import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.*;
 import com.intellij.usages.Usage;
 import com.intellij.usages.UsageInfo2UsageAdapter;
 
+import javax.swing.*;
+
 /**
  * Created by kgmyshin on 2015/06/07.
+ *
+ * modify by likfe ( https://github.com/likfe/ ) in 2016/09/05
+ *
+ * add try-catch
  */
 public class SenderFilter implements Filter {
 
-    public final PsiClass eventClass;
+    private final PsiClass eventClass;
 
-    public SenderFilter(PsiClass eventClass) {
+    SenderFilter(PsiClass eventClass) {
         this.eventClass = eventClass;
     }
+
+    private static final Icon ICON = IconLoader.getIcon("/icons/icon.png");
 
     @Override
     public boolean shouldShow(Usage usage) {
@@ -40,12 +51,17 @@ public class SenderFilter implements Filter {
                                     if (variable instanceof PsiLocalVariable) {
                                         PsiLocalVariable localVariable = (PsiLocalVariable) variable;
                                         PsiClass psiClass = PsiUtils.getClass(localVariable.getTypeElement().getType());
-                                        if (psiClass.getName().equals(eventClass.getName())) {
-                                            // pattern :
-                                            //   Event event = new Event();
-                                            //   EventBus.getDefault().post(event);
-                                            return true;
+                                        try {
+                                            if (psiClass.getName().equals(eventClass.getName())) {
+                                                // pattern :
+                                                //   Event event = new Event();
+                                                //   EventBus.getDefault().post(event);
+                                                return true;
+                                            }
+                                        }catch (NullPointerException e){
+                                            System.out.println(e.toString());
                                         }
+
                                     }
                                 }
                             }
