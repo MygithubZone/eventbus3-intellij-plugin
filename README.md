@@ -6,6 +6,11 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2016-09-07
+- add build version
+- modify `plugin id` , so that I can upload new version in https://plugins.jetbrains.com/
+- fix `plugin.xml` to enable to install in Android Studio'Plugins Online
+
 ### 2016-09-05
 Originator did not reply our's issue,I try to let it work
 
@@ -37,7 +42,7 @@ There are two ways.
 ## License 
 
 ```
-Copyright 2015
+Copyright 2016
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
