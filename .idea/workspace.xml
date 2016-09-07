@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb861e8-e1e4-4bf3-9544-350083f247f6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eventbus3-intellij-plugin.jar" afterPath="$PROJECT_DIR$/eventbus3-intellij-plugin.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README-zh.md" afterPath="$PROJECT_DIR$/README-zh.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="eventbus3-intellij-plugin.iws" />
@@ -47,8 +45,8 @@
         <option value="$PROJECT_DIR$/src/com/kgmyshin/ideaplugin/eventbus3/ShowUsagesAction.java" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/likfe/ideaplugin/eventbus3/SenderFilter.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/README-zh.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -60,8 +58,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="37" />
-    <option name="y" value="27" />
+    <option name="x" value="51" />
+    <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="767" />
   </component>
@@ -443,11 +441,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473067711355</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1. add issue in README">
+      <created>1473244144672</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1473244144672</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="27" width="1400" height="767" extended-state="0" />
+    <frame x="51" y="23" width="1400" height="767" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -508,7 +513,8 @@
     <MESSAGE value="1. Modify the readme , add change log" />
     <MESSAGE value="1. Modify the download url&#10;2. Add zh readme" />
     <MESSAGE value="1. update README" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. update README" />
+    <MESSAGE value="1. add issue in README" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. add issue in README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -817,23 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="321">
-            <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README-zh.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -845,6 +834,23 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="360">
             <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="126">
+            <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

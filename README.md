@@ -26,11 +26,8 @@ Originator did not reply our's issue,I try to let it work
 
 ![](https://raw.githubusercontent.com/kgmyshin/eventbus3-intellij-plugin/master/art/cap.gif)
 
-## Download
 
-
-
-## Install
+## Download & Install
 
 There are two ways.
 
