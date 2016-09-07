@@ -38,6 +38,10 @@ There are two ways.
 
 - [Download](https://github.com/likfe/eventbus3-intellij-plugin/raw/master/eventbus3-intellij-plugin.jar) the plugin jar and select "Install Plugin From Disk" in IntelliJ's plugin preferences.
 
+## Issues
+
+- [Unsupported major.minor version 52.0](https://github.com/likfe/eventbus3-intellij-plugin/issues/1)
+
 
 ## License 
 
