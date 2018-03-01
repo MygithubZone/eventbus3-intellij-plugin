@@ -1,7 +1,5 @@
 package com.kgmyshin.ideaplugin.eventbus3;
 
-import com.intellij.openapi.compiler.CompilationException;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.*;
 import com.intellij.usages.Usage;
