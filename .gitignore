@@ -7,6 +7,10 @@
 .mtj.tmp/
 
 # Package Files #
+<<<<<<< HEAD
+=======
+*.jar
+>>>>>>> 0c4cb32a0f2d9b97e9247bb20dba5bef197ba97f
 *.war
 *.ear
 
