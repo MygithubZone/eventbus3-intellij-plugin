@@ -3,7 +3,6 @@ package com.kgmyshin.ideaplugin.eventbus3;
 import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
 import com.intellij.codeInsight.daemon.LineMarkerInfo;
-import com.intellij.codeInsight.daemon.LineMarkerProvider;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
@@ -31,7 +30,7 @@ import java.util.List;
  * 2. try use `GlobalSearchScope.projectScope(project)` to just search for project,but get NullPointerException,
  * the old use `GlobalSearchScope.allScope(project)` ,it will search in project and libs,so slow
  */
-public class LineMarkerProvider implements com.intellij.codeInsight.daemon.LineMarkerProvider {
+public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.LineMarkerProvider {
 
     public static final Icon ICON = IconLoader.getIcon(Constants.ICON_PATH);
 

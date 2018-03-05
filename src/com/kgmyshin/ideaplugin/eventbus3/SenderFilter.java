@@ -4,6 +4,7 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.psi.*;
 import com.intellij.usages.Usage;
 import com.intellij.usages.UsageInfo2UsageAdapter;
+import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
 
 import javax.swing.*;
 
@@ -22,10 +23,11 @@ public class SenderFilter implements Filter {
         this.eventClass = eventClass;
     }
 
-    private static final Icon ICON = IconLoader.getIcon("/icons/icon.png");
+    private static final Icon ICON = IconLoader.getIcon(Constants.ICON_PATH);
 
     @Override
     public boolean shouldShow(Usage usage) {
+
         PsiElement element = ((UsageInfo2UsageAdapter) usage).getElement();
         if (element instanceof PsiReferenceExpression) {
             if ((element = element.getParent()) instanceof PsiMethodCallExpression) {

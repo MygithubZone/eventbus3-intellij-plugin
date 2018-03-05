@@ -1,9 +1,15 @@
 package com.kgmyshin.ideaplugin.eventbus3;
 
+import com.intellij.lang.Language;
 import com.intellij.psi.*;
+import com.intellij.psi.impl.source.tree.java.PsiIdentifierImpl;
+import com.intellij.psi.impl.source.tree.java.PsiMethodCallExpressionImpl;
+import com.intellij.psi.impl.source.tree.java.PsiReferenceExpressionImpl;
+import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
+import org.jetbrains.kotlin.psi.*;
 
 /**
- * Created by kgmyshin on 2015/06/07.
+ * modify by likfe ( https://github.com/likfe/ ) on 2018/03/05.
  */
 public class PsiUtils {
 
@@ -15,29 +21,28 @@ public class PsiUtils {
     }
 
     public static boolean isEventBusReceiver(PsiElement psiElement) {
-        if (psiElement instanceof PsiMethod) {
-            PsiMethod method = (PsiMethod) psiElement;
-            PsiModifierList modifierList = method.getModifierList();
-            for (PsiAnnotation psiAnnotation : modifierList.getAnnotations()) {
-                if (psiAnnotation.getQualifiedName().equals("org.greenrobot.eventbus.Subscribe")) {
-                    return true;
+        if (psiElement.getLanguage().is(Language.findLanguageByID("JAVA"))) {
+
+            if (psiElement instanceof PsiMethod) {
+                PsiMethod method = (PsiMethod) psiElement;
+                PsiModifierList modifierList = method.getModifierList();
+                for (PsiAnnotation psiAnnotation : modifierList.getAnnotations()) {
+                    if (safeEquals(psiAnnotation.getQualifiedName(), Constants.FUN_ANNOTATION)) {
+                        return true;
+                    }
                 }
             }
-        }
-        return false;
-    }
+        } else if (psiElement.getLanguage().is(Language.findLanguageByID("kotlin"))) {
 
-    public static boolean isEventBusPost(PsiElement psiElement) {
-        if (psiElement instanceof PsiCallExpression) {
-            PsiCallExpression callExpression = (PsiCallExpression) psiElement;
-            PsiMethod method = callExpression.resolveMethod();
-            if (method != null) {
-                String name = method.getName();
-                PsiElement parent = method.getParent();
-                if (name != null && name.equals("post") && parent instanceof PsiClass) {
-                    PsiClass implClass = (PsiClass) parent;
-                    if (isEventBusClass(implClass) || isSuperClassEventBus(implClass)) {
-                        return true;
+            if (psiElement instanceof KtNamedFunction) {
+                KtNamedFunction function = (KtNamedFunction) psiElement;
+                KtModifierList modifierList = function.getModifierList();
+                if (modifierList != null) {
+                    for (KtAnnotationEntry annotationEntry : modifierList.getAnnotationEntries()) {
+                        KtConstructorCalleeExpression calleeExpression = annotationEntry.getCalleeExpression();
+                        if (calleeExpression != null && safeEquals(calleeExpression.getText(), Constants.FUN_ANNOTATION_KT)) {
+                            return true;
+                        }
                     }
                 }
             }
@@ -45,33 +50,43 @@ public class PsiUtils {
         return false;
     }
 
-    private static boolean isEventBusClass(PsiClass psiClass) {
-        try {
-            return psiClass.getName().equals("EventBus");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            return false;
-        }
-    }
+    public static boolean isEventBusPost(PsiElement psiElement) {
+        if (psiElement.getLanguage().is(Language.findLanguageByID("JAVA"))) {
 
-    private static boolean isSuperClassEventBus(PsiClass psiClass) {
-        PsiClass[] supers = psiClass.getSupers();
-        if (supers.length == 0) {
-            return false;
-        }
-        for (PsiClass superClass : supers) {
-            try {
-                if (superClass.getName().equals("EventBus")) {
-                    return true;
+            if (psiElement instanceof PsiReferenceExpressionImpl) {
+                PsiReferenceExpressionImpl all = (PsiReferenceExpressionImpl) psiElement;
+                if (all.getFirstChild() instanceof PsiMethodCallExpressionImpl && all.getLastChild() instanceof PsiIdentifierImpl) {
+                    PsiMethodCallExpressionImpl start = (PsiMethodCallExpressionImpl) all.getFirstChild();
+                    PsiIdentifierImpl post = (PsiIdentifierImpl) all.getLastChild();
+                    if (safeEquals(post.getText(), Constants.FUN_NAME) && safeEquals(start.getText(), Constants.FUN_START)) {
+                        return true;
+                    }
                 }
-            } catch (Exception e) {
-                System.out.println(e.toString());
             }
-//            if (superClass.getName().equals("EventBus")) {
-//                return true;
-//            }
+
+        } else if (psiElement.getLanguage().is(Language.findLanguageByID("kotlin"))) {
+
+            if (psiElement instanceof KtDotQualifiedExpression) {
+                KtDotQualifiedExpression all = (KtDotQualifiedExpression) psiElement;
+                if (all.getFirstChild() instanceof KtDotQualifiedExpression && all.getLastChild() instanceof KtCallExpression) {
+                    String start = all.getFirstChild().getText();
+                    if (start != null && start.equals(Constants.FUN_START)) {
+                        KtCallExpression postRoot = (KtCallExpression) all.getLastChild();
+                        if (postRoot.getFirstChild() instanceof KtNameReferenceExpression) {
+                            KtNameReferenceExpression referenceExpression = (KtNameReferenceExpression) postRoot.getFirstChild();
+                            if (referenceExpression.getReferencedName().equals(Constants.FUN_NAME)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
         return false;
+    }
+
+    private static boolean safeEquals(String obj, String value) {
+        return obj != null && obj.equals(value);
     }
 
 }

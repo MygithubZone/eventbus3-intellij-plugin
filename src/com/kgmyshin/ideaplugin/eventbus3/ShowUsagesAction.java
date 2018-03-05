@@ -1149,7 +1149,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         @Override
         protected void selectElement(Object element, String selectedText) {
             List<UsageNode> data = ((MyModel)getTable().getModel()).getItems();
-            int i = data.indexOf(element);
+            int i = data.indexOf((UsageNode)element);
             if (i == -1) return;
             final int viewRow = getTable().convertRowIndexToView(i);
             getTable().getSelectionModel().setSelectionInterval(viewRow, viewRow);

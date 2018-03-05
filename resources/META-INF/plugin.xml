@@ -1,12 +1,14 @@
-<idea-plugin version="2">
+<idea-plugin>
     <id>com.likfe.ideaplugin.eventbus3</id>
     <name>EventBus3 Intellij Plugin</name>
-    <version>1.1</version>
+    <version>1.2</version>
     <vendor email="ys743276112@gmail.com" url="https://github.com/likfe/eventbus3-intellij-plugin">
         eventbus3-intellij-plugin
     </vendor>
 
     <description><![CDATA[
+    1.2.1
+
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
     <ul>
       <li><code>EventBus.post</code> to <code>@Subscribe</code> or <code>onEventMainThread</code></li>
@@ -43,7 +45,10 @@
         <!-- Add your extensions here -->
         <codeInsight.lineMarkerProvider
                 language="JAVA"
-                implementationClass="com.kgmyshin.ideaplugin.eventbus3.EventBus3LineMarkerProvider"/>
+                implementationClass="com.kgmyshin.ideaplugin.eventbus3.LineMarkerProviderJava"/>
+        <codeInsight.lineMarkerProvider
+                language="kotlin"
+                implementationClass="com.kgmyshin.ideaplugin.eventbus3.LineMarkerProviderKotlin"/>
     </extensions>
 
     <application-components>
@@ -59,6 +64,9 @@
     </actions>
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <depends>com.intellij.modules.androidstudio</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <!--<depends>com.intellij.modules.androidstudio</depends>-->
+    <depends optional="true">org.jetbrains.kotlin</depends>
 
 </idea-plugin>
