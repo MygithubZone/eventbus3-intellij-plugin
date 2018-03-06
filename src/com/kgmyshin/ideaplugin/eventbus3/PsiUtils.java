@@ -53,8 +53,8 @@ public class PsiUtils {
     public static boolean isEventBusPost(PsiElement psiElement) {
         if (psiElement.getLanguage().is(Language.findLanguageByID("JAVA"))) {
 
-            if (psiElement instanceof PsiReferenceExpressionImpl) {
-                PsiReferenceExpressionImpl all = (PsiReferenceExpressionImpl) psiElement;
+            if (psiElement instanceof PsiMethodCallExpressionImpl && psiElement.getFirstChild() != null && psiElement.getFirstChild() instanceof PsiReferenceExpressionImpl) {
+                PsiReferenceExpressionImpl all = (PsiReferenceExpressionImpl) psiElement.getFirstChild();
                 if (all.getFirstChild() instanceof PsiMethodCallExpressionImpl && all.getLastChild() instanceof PsiIdentifierImpl) {
                     PsiMethodCallExpressionImpl start = (PsiMethodCallExpressionImpl) all.getFirstChild();
                     PsiIdentifierImpl post = (PsiIdentifierImpl) all.getLastChild();
@@ -87,6 +87,14 @@ public class PsiUtils {
 
     private static boolean safeEquals(String obj, String value) {
         return obj != null && obj.equals(value);
+    }
+
+    public static boolean isKotlin(PsiElement psiElement) {
+        return psiElement.getLanguage().is(Language.findLanguageByID("kotlin"));
+    }
+
+    public static boolean isJava(PsiElement psiElement) {
+        return psiElement.getLanguage().is(Language.findLanguageByID("JAVA"));
     }
 
 }

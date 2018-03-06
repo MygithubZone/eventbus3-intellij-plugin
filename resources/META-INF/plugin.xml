@@ -7,7 +7,7 @@
     </vendor>
 
     <description><![CDATA[
-    1.2.1
+    1.2.2<br/>
 
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
     <ul>
@@ -45,10 +45,10 @@
         <!-- Add your extensions here -->
         <codeInsight.lineMarkerProvider
                 language="JAVA"
-                implementationClass="com.kgmyshin.ideaplugin.eventbus3.LineMarkerProviderJava"/>
+                implementationClass="com.kgmyshin.ideaplugin.eventbus3.java.LineMarkerProviderJava"/>
         <codeInsight.lineMarkerProvider
                 language="kotlin"
-                implementationClass="com.kgmyshin.ideaplugin.eventbus3.LineMarkerProviderKotlin"/>
+                implementationClass="com.kgmyshin.ideaplugin.eventbus3.kt.LineMarkerProviderKotlin"/>
     </extensions>
 
     <application-components>

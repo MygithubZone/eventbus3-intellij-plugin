@@ -74,6 +74,7 @@ import com.intellij.util.ui.ListTableModel;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.kotlin.idea.findUsages.handlers.KotlinFindUsagesHandler;
 
 import javax.swing.*;
 import javax.swing.table.TableColumn;
@@ -130,8 +131,11 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
             hideHints();
         }
     };
-    @NotNull private final UsageViewSettings myUsageViewSettings;
-    @Nullable private Runnable mySearchEverywhereRunnable;
+
+    @NotNull
+    private final UsageViewSettings myUsageViewSettings;
+    @Nullable
+    private Runnable mySearchEverywhereRunnable;
 
     public ShowUsagesAction() {
         setInjectedContext(true);
@@ -226,9 +230,10 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         HintManager.getInstance().hideHints(HintManager.HIDE_BY_ANY_KEY, false, false);
     }
 
-    void startFindUsages(@NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
+    public void startFindUsages(@NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
         Project project = element.getProject();
         FindUsagesManager findUsagesManager = ((FindManagerImpl)FindManager.getInstance(project)).getFindUsagesManager();
+        KotlinFindUsagesHandler handlers;
         FindUsagesHandler handler = findUsagesManager.getNewFindUsagesHandler(element, false);
         if (handler == null) return;
         showElementUsages(handler, editor, popupPosition, maxUsages, getDefaultOptions(handler));
@@ -1083,7 +1088,6 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
             return null;
         }
 
-//        @Override
         @Nullable
         PsiElement getPsiElementForHint(Object selectedValue) {
             if (selectedValue instanceof UsageNode) {
