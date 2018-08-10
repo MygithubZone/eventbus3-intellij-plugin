@@ -6,6 +6,13 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2018-08-10
+
+code change in branch `dev` , try support kotlin
+
+- Support `postSticky` to `@Subscribe`
+
+
 ### 2016-09-07
 - add build version
 - modify `plugin id` , so that I can upload new version in https://plugins.jetbrains.com/
@@ -22,7 +29,7 @@ Originator did not reply our's issue,I try to let it work
 
 
 
-### `Post` to `@Subscribe` and `@Subscribe` to `Post`
+### `post | postSticky` to `@Subscribe` and `@Subscribe` to `post`
 
 ![](https://raw.githubusercontent.com/kgmyshin/eventbus3-intellij-plugin/master/art/cap.gif)
 
@@ -43,7 +50,7 @@ There are two ways.
 ## License 
 
 ```
-Copyright 2016
+Copyright 2018
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
