@@ -1,11 +1,15 @@
 package com.kgmyshin.ideaplugin.eventbus3;
 
+import com.intellij.ide.plugins.IdeaPluginDescriptor;
+import com.intellij.ide.plugins.PluginManager;
 import com.intellij.lang.Language;
+import com.intellij.openapi.extensions.PluginId;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.source.tree.java.PsiIdentifierImpl;
 import com.intellij.psi.impl.source.tree.java.PsiMethodCallExpressionImpl;
 import com.intellij.psi.impl.source.tree.java.PsiReferenceExpressionImpl;
 import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
+import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
 import org.jetbrains.kotlin.psi.*;
 
 /**
@@ -95,6 +99,29 @@ public class PsiUtils {
 
     public static boolean isJava(PsiElement psiElement) {
         return psiElement.getLanguage().is(Language.findLanguageByID("JAVA"));
+    }
+
+    /**
+     * is kotlin plug installed and enable
+     *
+     * @return boolean
+     */
+    public static boolean checkIsKotlinInstalled() {
+        PluginId pluginId = PluginId.findId("org.jetbrains.kotlin");
+        if (pluginId != null) {
+            IdeaPluginDescriptor pluginDescriptor = PluginManager.getPlugin(pluginId);
+            return pluginDescriptor != null && pluginDescriptor.isEnabled();
+        }
+        return false;
+    }
+
+    private static void logPluginList() {
+        IdeaPluginDescriptor[] pluginDescriptors = PluginManager.getPlugins();
+        MLog.debug("== list plug ==");
+        for (IdeaPluginDescriptor item : pluginDescriptors) {
+            MLog.debug("id: " + item.getPluginId().getIdString() + " name: " + item.getName() + " isEnable: " + item.isEnabled());
+        }
+        MLog.debug("== list plug end ==");
     }
 
 }

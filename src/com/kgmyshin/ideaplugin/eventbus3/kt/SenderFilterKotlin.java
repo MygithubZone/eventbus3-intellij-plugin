@@ -1,12 +1,12 @@
 package com.kgmyshin.ideaplugin.eventbus3.kt;
 
 import com.intellij.psi.*;
+import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.usages.Usage;
 import com.intellij.usages.UsageInfo2UsageAdapter;
 import com.kgmyshin.ideaplugin.eventbus3.Filter;
 import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
 import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
-import org.jetbrains.kotlin.psi.KtTypeReference;
 
 /**
  * Created by likfe ( https://github.com/likfe/ ) in 2018/03/06
@@ -14,9 +14,9 @@ import org.jetbrains.kotlin.psi.KtTypeReference;
  */
 public class SenderFilterKotlin implements Filter {
 
-    private final KtTypeReference eventClass;
+    private final LeafPsiElement eventClass;
 
-    SenderFilterKotlin(KtTypeReference eventClass) {
+    SenderFilterKotlin(LeafPsiElement eventClass) {
         this.eventClass = eventClass;
     }
 

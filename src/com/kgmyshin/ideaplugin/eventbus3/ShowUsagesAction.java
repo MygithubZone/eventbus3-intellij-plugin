@@ -74,7 +74,6 @@ import com.intellij.util.ui.ListTableModel;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.kotlin.idea.findUsages.handlers.KotlinFindUsagesHandler;
 
 import javax.swing.*;
 import javax.swing.table.TableColumn;
@@ -233,7 +232,6 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
     public void startFindUsages(@NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
         Project project = element.getProject();
         FindUsagesManager findUsagesManager = ((FindManagerImpl)FindManager.getInstance(project)).getFindUsagesManager();
-        KotlinFindUsagesHandler handlers;
         FindUsagesHandler handler = findUsagesManager.getNewFindUsagesHandler(element, false);
         if (handler == null) return;
         showElementUsages(handler, editor, popupPosition, maxUsages, getDefaultOptions(handler));
