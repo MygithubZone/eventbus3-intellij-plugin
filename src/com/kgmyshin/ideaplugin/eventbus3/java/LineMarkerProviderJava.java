@@ -41,13 +41,28 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
                         JavaPsiFacade javaPsiFacade = JavaPsiFacade.getInstance(project);
                         PsiClass eventBusClass = javaPsiFacade.findClass(Constants.FUN_EVENT_CLASS, GlobalSearchScope.allScope(project));
                         if (eventBusClass == null) return;
-                        PsiMethod postMethod = eventBusClass.findMethodsByName(Constants.FUN_NAME, false)[0];
-                        PsiMethod method = (PsiMethod) psiElement;
-                        if (postMethod == null) return;
-                        PsiClass eventClass = ((PsiClassType) method.getParameterList().getParameters()[0].getTypeElement().getType()).resolve();
 
-                        new ShowUsagesAction(new SenderFilterJava(eventClass)).startFindUsages(postMethod, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                        PsiMethod method = (PsiMethod) psiElement;
+
+                        //post
+                        PsiMethod postMethod = eventBusClass.findMethodsByName(Constants.FUN_NAME, false)[0];
+                        if (null != postMethod) {
+                            PsiClass eventClass = ((PsiClassType) method.getParameterList().getParameters()[0].getTypeElement().getType()).resolve();
+
+                            new ShowUsagesAction(new SenderFilterJava(eventClass)).startFindUsages(postMethod, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                        }
+
+                        //postSticky
+//                        PsiMethod postMethod2 = eventBusClass.findMethodsByName(Constants.FUN_NAME2, false)[0];
+//                        if (null != postMethod2) {
+//                            PsiClass eventClass = ((PsiClassType) method.getParameterList().getParameters()[0].getTypeElement().getType()).resolve();
+//
+//                            new ShowUsagesAction(new SenderFilterJava(eventClass)).startFindUsages(postMethod2, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+//                        }
+
                     }
+
+
                 }
             };
 
@@ -61,13 +76,18 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
                 public void navigate(MouseEvent e, PsiElement psiElement) {
                     if (psiElement instanceof PsiMethodCallExpression) {
                         PsiMethodCallExpression expression = (PsiMethodCallExpression) psiElement;
-                        PsiType[] expressionTypes = expression.getArgumentList().getExpressionTypes();
-                        if (expressionTypes.length > 0) {
-                            PsiClass eventClass = PsiUtils.getClass(expressionTypes[0]);
-                            if (eventClass != null) {
-                                new ShowUsagesAction(new ReceiverFilterJava()).startFindUsages(eventClass, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                        try {
+                            PsiType[] expressionTypes = expression.getArgumentList().getExpressionTypes();
+                            if (expressionTypes.length > 0) {
+                                PsiClass eventClass = PsiUtils.getClass(expressionTypes[0]);
+                                if (eventClass != null) {
+                                    new ShowUsagesAction(new ReceiverFilterJava()).startFindUsages(eventClass, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                                }
                             }
+                        } catch (Exception ee) {
+                            ee.fillInStackTrace();
                         }
+
                     }
                 }
             };

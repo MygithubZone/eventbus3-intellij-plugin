@@ -1,8 +1,11 @@
 # eventbus3-intellij-plugin
 
-引导 [EventBus](https://github.com/greenrobot/EventBus) 的 `post` 和 `event`
+引导 [EventBus](https://github.com/greenrobot/EventBus) 的 `post | postSticky` 和 `event`
 
 ## 更新日志
+
+### 2018-08-10
+- 支持从 `postSticky` 到 `@Subscribe`
 
 ### 2016-09-07
 - 增加了 `build version` 值
@@ -20,7 +23,7 @@
 ---
 
 
-### 从`Post` 到 `@Subscribe` ，从 `@Subscribe` 到 `Post`
+### 从`post | postSticky` 到 `@Subscribe` ，从 `@Subscribe` 到 `post`
 
 ![](https://raw.githubusercontent.com/likfe/eventbus3-intellij-plugin/master/art/cap.gif)
 

@@ -62,7 +62,7 @@ public class PsiUtils {
                 if (all.getFirstChild() instanceof PsiMethodCallExpressionImpl && all.getLastChild() instanceof PsiIdentifierImpl) {
                     PsiMethodCallExpressionImpl start = (PsiMethodCallExpressionImpl) all.getFirstChild();
                     PsiIdentifierImpl post = (PsiIdentifierImpl) all.getLastChild();
-                    if (safeEquals(post.getText(), Constants.FUN_NAME) && safeEquals(start.getText(), Constants.FUN_START)) {
+                    if ((safeEquals(post.getText(), Constants.FUN_NAME) || safeEquals(post.getText(), Constants.FUN_NAME2)) && safeEquals(start.getText(), Constants.FUN_START)) {
                         return true;
                     }
                 }
