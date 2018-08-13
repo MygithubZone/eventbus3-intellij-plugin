@@ -9,7 +9,6 @@ import com.intellij.find.impl.FindManagerImpl;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleUtilCore;
-import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.JavaPsiFacade;
 import com.intellij.psi.PsiClass;
@@ -135,23 +134,30 @@ public class LineMarkerProviderKotlin implements com.intellij.codeInsight.daemon
 
                     if (psiElement instanceof KtDotQualifiedExpression) {
                         MLog.debug("kt SHOW_RECEIVERS 1: " + psiElement.getText());
-                        KtDotQualifiedExpression expression = (KtDotQualifiedExpression) psiElement;
-                        KtCallExpression callExpression = (KtCallExpression) expression.getLastChild();
-                        KtValueArgumentList argumentList = callExpression.getValueArgumentList();
-                        KtValueArgument argument = argumentList.getArguments().get(0);
-                        KtNameReferenceExpression referenceExpression= (KtNameReferenceExpression) argument.getFirstChild();
-                        LeafPsiElement leafPsiElement= (LeafPsiElement) referenceExpression.getFirstChild();
 
-                        //KtPsiClassWrapper psiClassWrapper= KotlinJavaPsiFacade.getInstance(psiElement.getProject()).findClass(leafPsiElement.getClass(),)
+                        try {
+                            KtDotQualifiedExpression expression = (KtDotQualifiedExpression) psiElement;
+                            KtCallExpression callExpression = (KtCallExpression) expression.getLastChild();
+                            KtValueArgumentList argumentList = callExpression.getValueArgumentList();
+                            KtValueArgument argument = argumentList.getArguments().get(0);
+                            KtNameReferenceExpression referenceExpression = (KtNameReferenceExpression) argument.getFirstChild();
+                            LeafPsiElement leafPsiElement = (LeafPsiElement) referenceExpression.getFirstChild();
 
-                        MLog.debug("kt SHOW_RECEIVERS 2: " + argument.getText());
-                        KtClass ktClass = new KtClass(leafPsiElement.getNode());
-                        MLog.debug("kt SHOW_RECEIVERS 3: " + ktClass.getText());
-                        new ShowUsagesAction(new ReceiverFilterKotlin())
-                                .startFindUsages(
-                                        ktClass, new RelativePoint(e),
-                                        PsiUtilBase.findEditor(psiElement),
-                                        Constants.MAX_USAGES);
+                            //KtPsiClassWrapper psiClassWrapper= KotlinJavaPsiFacade.getInstance(psiElement.getProject()).findClass(leafPsiElement.getClass(),)
+
+                            MLog.debug("kt SHOW_RECEIVERS 2: " + argument.getText());
+                            KtClass ktClass = new KtClass(leafPsiElement.getNode());
+                            MLog.debug("kt SHOW_RECEIVERS 3: " + ktClass.getText());
+                            new ShowUsagesAction(new ReceiverFilterKotlin())
+                                    .startFindUsages(
+                                            ktClass, new RelativePoint(e),
+                                            PsiUtilBase.findEditor(psiElement),
+                                            Constants.MAX_USAGES);
+
+                        } catch (Exception | Error throwable) {
+                            throwable.fillInStackTrace();
+                        }
+
 
 //                        PsiType[] expressionTypes = expression.getArgumentList().getExpressionTypes();
 //                        if (expressionTypes.length > 0) {
@@ -171,6 +177,21 @@ public class LineMarkerProviderKotlin implements com.intellij.codeInsight.daemon
     @Nullable
     @Override
     public LineMarkerInfo getLineMarkerInfo(@NotNull PsiElement psiElement) {
+        if (!PsiUtils.checkIsKotlinInstalled()) return null;
+        if (!PsiUtils.isKotlin(psiElement)) return null;
+
+        if (PsiUtils.isEventBusPost(psiElement)) {
+            LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+                    Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
+                    GutterIconRenderer.Alignment.LEFT);
+            return info;
+        } else if (PsiUtils.isEventBusReceiver(psiElement)) {
+            LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+                    Pass.UPDATE_ALL, null, SHOW_SENDERS,
+                    GutterIconRenderer.Alignment.LEFT);
+            return info;
+        }
+
         return null;
     }
 
@@ -179,26 +200,26 @@ public class LineMarkerProviderKotlin implements com.intellij.codeInsight.daemon
     public void collectSlowLineMarkers(@NotNull List<PsiElement> list, @NotNull Collection<LineMarkerInfo> collection) {
         // if kotlin plug is not enable,do nothing
         // enable mean: kotlin plug installed and its status is available
-        if (!PsiUtils.checkIsKotlinInstalled()) return;
+//        if (!PsiUtils.checkIsKotlinInstalled()) return;
 
-        for (PsiElement psiElement : list) {
-
-            ProgressManager.checkCanceled();
-            if (PsiUtils.isKotlin(psiElement)) {
-
-                if (PsiUtils.isEventBusPost(psiElement)) {
-                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
-                            GutterIconRenderer.Alignment.LEFT);
-                    collection.add(info);
-                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
-                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
-                            GutterIconRenderer.Alignment.LEFT);
-                    collection.add(info);
-                }
-            }
-        }
+//        for (PsiElement psiElement : list) {
+//
+//            ProgressManager.checkCanceled();
+//            if (PsiUtils.isKotlin(psiElement)) {
+//
+//                if (PsiUtils.isEventBusPost(psiElement)) {
+//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+//                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
+//                            GutterIconRenderer.Alignment.LEFT);
+//                    collection.add(info);
+//                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
+//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+//                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
+//                            GutterIconRenderer.Alignment.LEFT);
+//                    collection.add(info);
+//                }
+//            }
+//        }
 
     }
 }

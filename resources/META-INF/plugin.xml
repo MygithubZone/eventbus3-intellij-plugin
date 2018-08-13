@@ -1,13 +1,13 @@
 <idea-plugin>
     <id>com.likfe.ideaplugin.eventbus3</id>
     <name>EventBus3 Intellij Plugin</name>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <vendor email="ys743276112@gmail.com" url="https://github.com/likfe/eventbus3-intellij-plugin">
         eventbus3-intellij-plugin
     </vendor>
 
     <description><![CDATA[
-    1.2.3<br/>
+    1.2.4<br/>
 
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
     <ul>
@@ -26,8 +26,9 @@
     </description>
 
     <change-notes><![CDATA[
+      fix bug<br>
       Add Support postSticky.<br><br>
-
+      修复 bug<br>
       新增支持 postSticky 的跳转<br>
     ]]>
     </change-notes>

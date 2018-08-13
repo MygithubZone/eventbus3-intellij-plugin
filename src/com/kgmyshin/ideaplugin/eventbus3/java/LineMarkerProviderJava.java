@@ -4,7 +4,6 @@ import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
 import com.intellij.codeInsight.daemon.LineMarkerInfo;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
-import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
@@ -95,31 +94,44 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
     @Nullable
     @Override
     public LineMarkerInfo getLineMarkerInfo(@NotNull PsiElement psiElement) {
+        if (!PsiUtils.isJava(psiElement)) return null;
+        //if (!(psiElement instanceof PsiIdentifier && psiElement.getParent() instanceof PsiMethod)) return null;
+        if (PsiUtils.isEventBusPost(psiElement)) {
+            LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+                    Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
+                    GutterIconRenderer.Alignment.LEFT);
+            return info;
+        } else if (PsiUtils.isEventBusReceiver(psiElement)) {
+            LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+                    Pass.UPDATE_ALL, null, SHOW_SENDERS,
+                    GutterIconRenderer.Alignment.LEFT);
+            return info;
+        }
         return null;
     }
 
 
     @Override
     public void collectSlowLineMarkers(@NotNull List<PsiElement> list, @NotNull Collection<LineMarkerInfo> collection) {
-        for (PsiElement psiElement : list) {
-
-            ProgressManager.checkCanceled();
-
-            if (PsiUtils.isJava(psiElement)) {
-
-                if (PsiUtils.isEventBusPost(psiElement)) {
-                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
-                            GutterIconRenderer.Alignment.LEFT);
-                    collection.add(info);
-                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
-                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
-                            GutterIconRenderer.Alignment.LEFT);
-                    collection.add(info);
-                }
-            }
-        }
-
+//        for (PsiElement psiElement : list) {
+//
+//            ProgressManager.checkCanceled();
+//
+//            if (PsiUtils.isJava(psiElement)) {
+//
+//                if (PsiUtils.isEventBusPost(psiElement)) {
+//
+////                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+////                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
+////                            GutterIconRenderer.Alignment.LEFT);
+//                    collection.add(getLineMarkerInfo(psiElement));
+//                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
+//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
+//                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
+//                            GutterIconRenderer.Alignment.LEFT);
+//                    collection.add(getLineMarkerInfo(psiElement));
+//                }
+//            }
+//        }
     }
 }
