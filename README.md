@@ -6,6 +6,12 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2018-08-13
+
+- Fix bug
+- Support `postSticky` to `@Subscribe`
+- Try support kotlin
+
 ### 2018-08-10
 
 code change in branch `dev` , try support kotlin

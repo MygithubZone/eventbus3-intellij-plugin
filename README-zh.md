@@ -4,6 +4,13 @@
 
 ## 更新日志
 
+
+### 2018-08-13
+
+- 修复 bug
+- 支持 `postSticky` 到 `@Subscribe`
+- 尝试支持 kotlin
+
 ### 2018-08-10
 
 代码变化在 `dev` 分支，尝试支持 kotlin 中
