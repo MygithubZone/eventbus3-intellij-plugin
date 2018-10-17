@@ -6,6 +6,10 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2018-10-17
+
+- update icon
+
 ### 2018-08-13
 
 - Fix bug
