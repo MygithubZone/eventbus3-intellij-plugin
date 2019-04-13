@@ -71,6 +71,7 @@ import com.intellij.util.messages.MessageBusConnection;
 import com.intellij.util.ui.AsyncProcessIcon;
 import com.intellij.util.ui.ColumnInfo;
 import com.intellij.util.ui.ListTableModel;
+import com.kgmyshin.ideaplugin.eventbus3.java.DelegatingFindUsagesHandler;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -235,6 +236,26 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         FindUsagesHandler handler = findUsagesManager.getNewFindUsagesHandler(element, false);
         if (handler == null) return;
         showElementUsages(handler, editor, popupPosition, maxUsages, getDefaultOptions(handler));
+    }
+
+    public void startFindUsages(List<PsiElement> generatedDeclarations, @NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
+        FindUsagesHandler handler = getFindUsageHandler(generatedDeclarations, element, false);
+        if (handler == null) {
+            return;
+        }
+        showElementUsages(handler, editor, popupPosition, maxUsages, getDefaultOptions(handler));
+    }
+
+    private FindUsagesHandler getFindUsageHandler(List<PsiElement> generatedDeclarations, PsiElement element, boolean forHighlightUsages) {
+        if (generatedDeclarations.isEmpty()) {
+            return null;
+        }
+        FindUsagesManager findUsagesManager = ((FindManagerImpl) FindManager.getInstance(element.getProject())).getFindUsagesManager();
+        List<FindUsagesHandler> delegateFindUsageHandlers = new ArrayList<FindUsagesHandler>(3);
+        for (PsiElement psiElement : generatedDeclarations) {
+            delegateFindUsageHandlers.add(findUsagesManager.getFindUsagesHandler(psiElement, forHighlightUsages));
+        }
+        return delegateFindUsageHandlers.size() == 1 ? delegateFindUsageHandlers.get(0) : new DelegatingFindUsagesHandler(element, delegateFindUsageHandlers);
     }
 
     @NotNull

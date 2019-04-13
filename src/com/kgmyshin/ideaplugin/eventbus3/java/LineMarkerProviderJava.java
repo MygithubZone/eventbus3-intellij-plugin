@@ -3,12 +3,19 @@ package com.kgmyshin.ideaplugin.eventbus3.java;
 import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
 import com.intellij.codeInsight.daemon.LineMarkerInfo;
+import com.intellij.find.FindManager;
+import com.intellij.find.findUsages.FindUsagesHandler;
+import com.intellij.find.findUsages.FindUsagesManager;
+import com.intellij.find.findUsages.FindUsagesOptions;
+import com.intellij.find.impl.FindManagerImpl;
 import com.intellij.openapi.editor.markup.GutterIconRenderer;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.ui.awt.RelativePoint;
+import com.intellij.usageView.UsageInfo;
+import com.intellij.util.CommonProcessors;
 import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
 import com.kgmyshin.ideaplugin.eventbus3.ShowUsagesAction;
 import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
@@ -16,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -47,8 +55,9 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
                         PsiMethod postMethod = eventBusClass.findMethodsByName(Constants.FUN_NAME, false)[0];
                         if (null != postMethod) {
                             PsiClass eventClass = ((PsiClassType) method.getParameterList().getParameters()[0].getTypeElement().getType()).resolve();
-
-                            new ShowUsagesAction(new SenderFilterJava(eventClass)).startFindUsages(postMethod, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                            List<PsiClass> allClasses = searchSubClasses(eventClass);
+                            allClasses.add(eventClass);
+                            new ShowUsagesAction(new SenderFilterJava(allClasses)).startFindUsages(postMethod, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
                         }
 
                         //postSticky
@@ -80,7 +89,12 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
                             if (expressionTypes.length > 0) {
                                 PsiClass eventClass = PsiUtils.getClass(expressionTypes[0]);
                                 if (eventClass != null) {
-                                    new ShowUsagesAction(new ReceiverFilterJava()).startFindUsages(eventClass, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
+                                    List<PsiElement> generatedDeclarations = new ArrayList<>();
+                                    generatedDeclarations.add(PsiUtils.getClass(expressionTypes[0]));
+                                    for (PsiType superType : expressionTypes[0].getSuperTypes()) {
+                                        generatedDeclarations.add(PsiUtils.getClass(superType));
+                                    }
+                                    new ShowUsagesAction(new ReceiverFilterJava()).startFindUsages(generatedDeclarations, eventClass, new RelativePoint(e), PsiUtilBase.findEditor(psiElement), Constants.MAX_USAGES);
                                 }
                             }
                         } catch (Exception ee) {
@@ -133,5 +147,38 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
 //                }
 //            }
 //        }
+    }
+
+    @NotNull
+    public static Collection<UsageInfo> search(@NotNull PsiElement element) {
+        FindUsagesManager findUsagesManager = ((FindManagerImpl) FindManager.getInstance(element.getProject())).getFindUsagesManager();
+        FindUsagesHandler findUsagesHandler = findUsagesManager.getFindUsagesHandler(element, false);
+        final FindUsagesOptions options = findUsagesHandler.getFindUsagesOptions();
+        final CommonProcessors.CollectProcessor<UsageInfo> processor = new CommonProcessors.CollectProcessor<UsageInfo>();
+        for (PsiElement primaryElement : findUsagesHandler.getPrimaryElements()) {
+            findUsagesHandler.processElementUsages(primaryElement, processor, options);
+        }
+        for (PsiElement secondaryElement : findUsagesHandler.getSecondaryElements()) {
+            findUsagesHandler.processElementUsages(secondaryElement, processor, options);
+        }
+        return processor.getResults();
+    }
+
+    @NotNull
+    private static List<PsiClass> searchSubClasses(@NotNull PsiClass element) {
+        Collection<UsageInfo> usageInfos = search(element);
+        List<PsiClass> subClasses = new ArrayList<>();
+        for (UsageInfo usageInfo : usageInfos) {
+            PsiElement psiElement = usageInfo.getElement();
+            if (psiElement.getParent() instanceof PsiReferenceList) {
+                PsiReferenceList referenceListElement = (PsiReferenceList) psiElement.getParent();
+                if (referenceListElement.getRole() == PsiReferenceList.Role.EXTENDS_LIST) {
+                    if (referenceListElement.getParent() instanceof PsiClass) {
+                        subClasses.add((PsiClass) referenceListElement.getParent());
+                    }
+                }
+            }
+        }
+        return subClasses;
     }
 }
