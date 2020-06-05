@@ -6,8 +6,6 @@ import com.intellij.usages.UsageInfo2UsageAdapter;
 import com.kgmyshin.ideaplugin.eventbus3.Filter;
 import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
 
-import java.util.List;
-
 /**
  * Created by kgmyshin on 2015/06/07.
  *
@@ -17,19 +15,10 @@ import java.util.List;
  */
 public class SenderFilterJava implements Filter {
 
-    private final List<PsiClass> mEventClasses;
+    private final PsiClass eventClass;
 
-    public SenderFilterJava(List<PsiClass> eventClasses) {
-        this.mEventClasses = eventClasses;
-    }
-
-    private boolean isEventClass(String clazz) {
-        for (PsiClass eventClass : mEventClasses) {
-            if (clazz.equals(eventClass.getName())) {
-                return true;
-            }
-        }
-        return false;
+    public SenderFilterJava(PsiClass eventClass) {
+        this.eventClass = eventClass;
     }
 
     @Override
@@ -41,7 +30,7 @@ public class SenderFilterJava implements Filter {
                 PsiMethodCallExpression callExpression = (PsiMethodCallExpression) element;
                 PsiType[] types = callExpression.getArgumentList().getExpressionTypes();
                 for (PsiType type : types) {
-                    if (isEventClass(PsiUtils.getClass(type).getName())) {
+                    if (PsiUtils.getClass(type).getName().equals(eventClass.getName())) {
                         // pattern : EventBus.getDefault().post(new Event());
                         return true;
                     }
@@ -59,7 +48,7 @@ public class SenderFilterJava implements Filter {
                                         PsiLocalVariable localVariable = (PsiLocalVariable) variable;
                                         PsiClass psiClass = PsiUtils.getClass(localVariable.getTypeElement().getType());
                                         try {
-                                            if (isEventClass(psiClass.getName())) {
+                                            if (psiClass.getName().equals(eventClass.getName())) {
                                                 // pattern :
                                                 //   Event event = new Event();
                                                 //   EventBus.getDefault().post(event);
