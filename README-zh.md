@@ -4,6 +4,13 @@
 
 ## 更新日志
 
+### 2020-09-19
+- 把项目从 maven 转换为 gradle
+- 替换了 标记为 deprecated 的 API
+    - `ScrollingUtil` 代替 `TableScrollingUtil`
+    - `UsageNode(Node parent, Usage usage)` 代替 `UsageNode(Usage usage, UsageViewTreeModelBuilder model)`
+- 适配 Android Studio 4.0.1 (IntelliJ 193)
+
 ### 2018-10-17
 
 - 更新 icon 图标，在高清屏上具有更好的效果

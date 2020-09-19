@@ -6,6 +6,13 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2020-09-19
+- convert maven project to gradle project
+- replace deprecated API
+    - `ScrollingUtil` replace `TableScrollingUtil`
+    - `UsageNode(Node parent, Usage usage)` replace `UsageNode(Usage usage, UsageViewTreeModelBuilder model)`
+- Adapter Android Studio 4.0.1(IntelliJ 193)
+
 ### 2018-10-17
 
 - update icon
