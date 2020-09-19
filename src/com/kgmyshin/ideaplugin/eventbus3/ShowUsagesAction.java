@@ -130,8 +130,11 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
             hideHints();
         }
     };
-    @NotNull private final UsageViewSettings myUsageViewSettings;
-    @Nullable private Runnable mySearchEverywhereRunnable;
+
+    @NotNull
+    private final UsageViewSettings myUsageViewSettings;
+    @Nullable
+    private Runnable mySearchEverywhereRunnable;
 
     public ShowUsagesAction() {
         setInjectedContext(true);
@@ -226,7 +229,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         HintManager.getInstance().hideHints(HintManager.HIDE_BY_ANY_KEY, false, false);
     }
 
-    void startFindUsages(@NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
+    public void startFindUsages(@NotNull PsiElement element, @NotNull RelativePoint popupPosition, Editor editor, int maxUsages) {
         Project project = element.getProject();
         FindUsagesManager findUsagesManager = ((FindManagerImpl)FindManager.getInstance(project)).getFindUsagesManager();
         FindUsagesHandler handler = findUsagesManager.getNewFindUsagesHandler(element, false);
@@ -1083,7 +1086,6 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
             return null;
         }
 
-//        @Override
         @Nullable
         PsiElement getPsiElementForHint(Object selectedValue) {
             if (selectedValue instanceof UsageNode) {
@@ -1149,7 +1151,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         @Override
         protected void selectElement(Object element, String selectedText) {
             List<UsageNode> data = ((MyModel)getTable().getModel()).getItems();
-            int i = data.indexOf(element);
+            int i = data.indexOf((UsageNode)element);
             if (i == -1) return;
             final int viewRow = getTable().convertRowIndexToView(i);
             getTable().getSelectionModel().setSelectionInterval(viewRow, viewRow);
