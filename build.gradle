@@ -33,7 +33,7 @@ dependencies {
 intellij {
     plugins = ['org.jetbrains.kotlin']
     version = '2018.3.6'
-    pluginName = "EventBus3 Intellij Plugin"
+    pluginName = "EventBus3-Intellij-Plugin"
     downloadSources = true
     sameSinceUntilBuild = false
     updateSinceUntilBuild = false
