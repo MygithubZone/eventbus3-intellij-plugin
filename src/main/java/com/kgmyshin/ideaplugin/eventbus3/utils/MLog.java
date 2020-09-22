@@ -1,6 +1,6 @@
 package com.kgmyshin.ideaplugin.eventbus3.utils;
 
-import com.intellij.ide.plugins.PluginManager;
+import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.openapi.diagnostic.Logger;
@@ -16,19 +16,19 @@ public class MLog {
 
     public static void debug(String s) {
         LOG.info(s);
-        PluginManager.getLogger().debug(s);
+        PluginManagerCore.getLogger().debug(s);
         log(s);
     }
 
     public static void debug(Throwable s) {
         LOG.info(s);
-        PluginManager.getLogger().debug(s);
+        PluginManagerCore.getLogger().debug(s);
         log(s.toString());
     }
 
 
     public static void debug(String s, Object... more) {
-        PluginManager.getLogger().debug(s, more);
+        PluginManagerCore.getLogger().debug(s, more);
         StringBuilder sb = new StringBuilder(s);
         for (Object obj : more) {
             sb.append(obj);
