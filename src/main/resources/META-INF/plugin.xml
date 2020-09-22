@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.likfe.ideaplugin.eventbus3</id>
-    <name>EventBus3 Intellij Plugin</name>
+    <name>EventBus3-IDEA</name>
     <!--<version>1.2.5</version>-->
     <vendor email="ys743276112@gmail.com" url="https://github.com/likfe/eventbus3-intellij-plugin">
         eventbus3-intellij-plugin
@@ -26,8 +26,10 @@
     </description>
 
     <change-notes><![CDATA[
+      change plugin name `EventBus3 Intellij Plugin` to `EventBus3-IDEA`<br>
       replace deprecated API<br>
       Adapter Android Studio 4.0.1(IntelliJ 193)<br><br>
+      修改插件名称`EventBus3 Intellij Plugin` 为 `EventBus3-IDEA`<br>
       替换了标记为 deprecated 的 API<br>
       适配 Android Studio 4.0.1 (IntelliJ 193)<br>
     ]]>
@@ -66,7 +68,8 @@
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
     <!--<depends>com.intellij.modules.androidstudio</depends>-->
-    <depends optional="true">org.jetbrains.kotlin</depends>
+    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>
 
 </idea-plugin>

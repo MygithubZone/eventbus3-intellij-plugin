@@ -4,6 +4,9 @@
 
 ## 更新日志
 
+### 2020-09-22
+- 修改插件名称`EventBus3 Intellij Plugin` 为 `EventBus3-IDEA`
+
 ### 2020-09-19
 - 把项目从 maven 转换为 gradle
 - 替换了 标记为 deprecated 的 API
@@ -50,7 +53,7 @@
 
 ## 安装
 两种方法：
-- Android Studio -> Preference -> Plugins -> Browse Repositories : `EventBus` -> 选择 `EventBus3 Intellij Plugin` -> 点击 `Install` 按钮.
+- Android Studio -> Preference -> Plugins -> Browse Repositories : `EventBus` -> 选择 `EventBus3-IDEA` -> 点击 `Install` 按钮.
 - [下载](https://github.com/likfe/eventbus3-intellij-plugin/raw/master/eventbus3-intellij-plugin.jar) jar 文件， 然后在插件界面选择"Install Plugin From Disk" 进行安装
 
 ## Issues

@@ -6,6 +6,9 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 ## Change Log
 
+### 2020-09-22
+- change plugin name `EventBus3 Intellij Plugin` to `EventBus3-IDEA`
+
 ### 2020-09-19
 - convert maven project to gradle project
 - replace deprecated API
@@ -55,7 +58,7 @@ Originator did not reply our's issue,I try to let it work
 
 There are two ways.
 
-- Preference -> Plugins -> Browse `EventBus` -> Select `EventBus3 Intellij Plugin` -> push Install plugin Btn.
+- Preference -> Plugins -> Browse `EventBus` -> Select `EventBus3-IDEA` -> push Install plugin Btn.
 
 - [Download](https://github.com/likfe/eventbus3-intellij-plugin/raw/master/eventbus3-intellij-plugin.jar) the plugin jar and select "Install Plugin From Disk" in IntelliJ's plugin preferences.
 
