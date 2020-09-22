@@ -2,6 +2,18 @@
 
 引导 [EventBus](https://github.com/greenrobot/EventBus) 的 `post | postSticky` 和 `event`
 
+### 从`post | postSticky` 到 `@Subscribe` ，从 `@Subscribe` 到 `post`
+
+![](https://raw.githubusercontent.com/likfe/eventbus3-intellij-plugin/master/art/cap.gif)
+
+
+## 安装
+两种方法：
+- Android Studio -> Preference -> Plugins -> Browse Repositories : `EventBus` -> 选择 `EventBus3-IDEA` -> 点击 `Install` 按钮.
+- [下载](https://github.com/likfe/eventbus3-intellij-plugin/releases)最新版本的 zip 文件， 然后在插件界面选择"Install Plugin From Disk" 进行安装
+
+----
+
 ## 更新日志
 
 ### 2020-09-22
@@ -42,19 +54,6 @@
 - 修改包名和方法名以适应 `EventBus 3.X`
 - 替换一个在新版的 `intellij plugin SDK` 已经不存在的类
 - 增加若干 `try-catch` ，防止插件崩溃
-
----
-
-
-### 从`post | postSticky` 到 `@Subscribe` ，从 `@Subscribe` 到 `post`
-
-![](https://raw.githubusercontent.com/likfe/eventbus3-intellij-plugin/master/art/cap.gif)
-
-
-## 安装
-两种方法：
-- Android Studio -> Preference -> Plugins -> Browse Repositories : `EventBus` -> 选择 `EventBus3-IDEA` -> 点击 `Install` 按钮.
-- [下载](https://github.com/likfe/eventbus3-intellij-plugin/raw/master/eventbus3-intellij-plugin.jar) jar 文件， 然后在插件界面选择"Install Plugin From Disk" 进行安装
 
 ## Issues
 

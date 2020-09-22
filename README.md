@@ -4,6 +4,21 @@ Plugin to navigate between events posted by [EventBus](https://github.com/greenr
 
 [中文说明](./README-zh.md)
 
+### `post | postSticky` to `@Subscribe` and `@Subscribe` to `post`
+
+![](https://raw.githubusercontent.com/kgmyshin/eventbus3-intellij-plugin/master/art/cap.gif)
+
+
+## Download & Install
+
+There are two ways.
+
+- Preference -> Plugins -> Browse `EventBus` -> Select `EventBus3-IDEA` -> push Install plugin Btn.
+
+- [Download](https://github.com/likfe/eventbus3-intellij-plugin/releases) the plugin zip and select "Install Plugin From Disk" in IntelliJ's plugin preferences.
+
+----
+
 ## Change Log
 
 ### 2020-09-22
@@ -44,23 +59,6 @@ Originator did not reply our's issue,I try to let it work
 - Fix for EventBus3 new package name
 - Fix a class that don't exist in the last `intellij plugin SDK`
 - Add some `try-catch` , So it don't shutdown
-
-----
-
-
-
-### `post | postSticky` to `@Subscribe` and `@Subscribe` to `post`
-
-![](https://raw.githubusercontent.com/kgmyshin/eventbus3-intellij-plugin/master/art/cap.gif)
-
-
-## Download & Install
-
-There are two ways.
-
-- Preference -> Plugins -> Browse `EventBus` -> Select `EventBus3-IDEA` -> push Install plugin Btn.
-
-- [Download](https://github.com/likfe/eventbus3-intellij-plugin/raw/master/eventbus3-intellij-plugin.jar) the plugin jar and select "Install Plugin From Disk" in IntelliJ's plugin preferences.
 
 ## Issues
 
