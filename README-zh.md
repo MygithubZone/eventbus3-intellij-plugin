@@ -19,6 +19,7 @@
 ### 2020-10-15
 - 使用 2020.1.4 构建
 - 升级到version 2020.0.0(201~)
+- 适配 Android Studio 4.1 (IntelliJ 201)
 
 ### 2020-09-22
 - 修改插件名称`EventBus3 Intellij Plugin` 为 `EventBus3-IDEA`

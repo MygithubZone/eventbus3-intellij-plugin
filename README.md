@@ -24,6 +24,7 @@ There are two ways.
 ### 2020-10-15
 - build with 2020.1.4
 - upgrade to version 2020.0.0(201~)
+- Adapter Android Studio 4.1(IntelliJ 201)
 
 ### 2020-09-22
 - change plugin name `EventBus3 Intellij Plugin` to `EventBus3-IDEA`
