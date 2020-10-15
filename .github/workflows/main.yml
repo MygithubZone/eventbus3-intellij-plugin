@@ -33,8 +33,8 @@ jobs:
         with:
           plugin-location: 'build/distributions/EventBus3-Intellij-Plugin-1.2.5.zip'
           ide-versions: |
-            ideaIC:2019.3
-            ideaIU:2019.3
+            ideaIC:2020.1
+            ideaIU:2020.1
             ideaIC:LATEST-EAP-SNAPSHOT
 
       - name: Get log file path and print contents
