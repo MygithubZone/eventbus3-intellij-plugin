@@ -6,7 +6,6 @@
     </vendor>
 
     <description><![CDATA[
-    2019.0.0 版本，适配到 IDEA 2019.*<br/>
     2020.0.0 即将适配 Kotlin,建议升级到 Android Studio 4.1及以上以使用最新版本<br/>
 
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
@@ -28,10 +27,10 @@
     <change-notes><![CDATA[
       change plugin name `EventBus3 Intellij Plugin` to `EventBus3-IDEA`<br>
       replace deprecated API<br>
-      Adapter Android Studio 4.0.1(IntelliJ 193)<br><br>
+      Adapter Android Studio 4.1(IntelliJ 201)<br><br>
       修改插件名称`EventBus3 Intellij Plugin` 为 `EventBus3-IDEA`<br>
       替换了标记为 deprecated 的 API<br>
-      适配 Android Studio 4.0.1 (IntelliJ 193)<br>
+      适配 Android Studio 4.1 (IntelliJ 201)<br>
     ]]>
     </change-notes>
 
