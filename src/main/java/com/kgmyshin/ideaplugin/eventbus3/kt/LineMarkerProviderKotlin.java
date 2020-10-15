@@ -176,7 +176,7 @@ public class LineMarkerProviderKotlin implements com.intellij.codeInsight.daemon
 
     @Nullable
     @Override
-    public LineMarkerInfo getLineMarkerInfo(@NotNull PsiElement psiElement) {
+    public LineMarkerInfo<?> getLineMarkerInfo(@NotNull PsiElement psiElement) {
         if (!PsiUtils.checkIsKotlinInstalled()) return null;
         if (!PsiUtils.isKotlin(psiElement)) return null;
 
@@ -197,29 +197,6 @@ public class LineMarkerProviderKotlin implements com.intellij.codeInsight.daemon
 
 
     @Override
-    public void collectSlowLineMarkers(@NotNull List<PsiElement> list, @NotNull Collection<LineMarkerInfo> collection) {
-        // if kotlin plug is not enable,do nothing
-        // enable mean: kotlin plug installed and its status is available
-//        if (!PsiUtils.checkIsKotlinInstalled()) return;
-
-//        for (PsiElement psiElement : list) {
-//
-//            ProgressManager.checkCanceled();
-//            if (PsiUtils.isKotlin(psiElement)) {
-//
-//                if (PsiUtils.isEventBusPost(psiElement)) {
-//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-//                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
-//                            GutterIconRenderer.Alignment.LEFT);
-//                    collection.add(info);
-//                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
-//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-//                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
-//                            GutterIconRenderer.Alignment.LEFT);
-//                    collection.add(info);
-//                }
-//            }
-//        }
-
+    public void collectSlowLineMarkers(@NotNull List<? extends PsiElement> list, @NotNull Collection<? super LineMarkerInfo<?>> collection) {
     }
 }

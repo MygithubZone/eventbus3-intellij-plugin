@@ -17,7 +17,7 @@ apply plugin: "idea"
 apply plugin: "org.jetbrains.intellij"
 
 group 'com.likfe.ideaplugin.eventbus3'
-version '2020.0.0'
+version '2020.0.1'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -32,9 +32,9 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     plugins = ['java', 'org.jetbrains.kotlin']
-    version = '2020.1.4' //plugin sdk version
+    version = '2020.2.2' //plugin sdk version
     pluginName = "EventBus3-IDEA" //just define plugin zip file name
-    downloadSources = false
+    downloadSources = true
     sameSinceUntilBuild = false
     updateSinceUntilBuild = false
 }

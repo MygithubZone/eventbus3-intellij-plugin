@@ -31,7 +31,7 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
      * use Subscribe to find all matched post
      */
 
-    private static GutterIconNavigationHandler<PsiElement> SHOW_SENDERS =
+    private static final GutterIconNavigationHandler<PsiElement> SHOW_SENDERS =
             new GutterIconNavigationHandler<PsiElement>() {
                 @Override
                 public void navigate(MouseEvent e, PsiElement psiElement) {
@@ -69,7 +69,7 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
      * use post to find all matched Subscribe
      */
 
-    private static GutterIconNavigationHandler<PsiElement> SHOW_RECEIVERS =
+    private static final GutterIconNavigationHandler<PsiElement> SHOW_RECEIVERS =
             new GutterIconNavigationHandler<PsiElement>() {
                 @Override
                 public void navigate(MouseEvent e, PsiElement psiElement) {
@@ -91,9 +91,8 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
                 }
             };
 
-    @Nullable
     @Override
-    public LineMarkerInfo getLineMarkerInfo(@NotNull PsiElement psiElement) {
+    public LineMarkerInfo<?> getLineMarkerInfo(@NotNull PsiElement psiElement) {
         if (!PsiUtils.isJava(psiElement)) return null;
         //if (!(psiElement instanceof PsiIdentifier && psiElement.getParent() instanceof PsiMethod)) return null;
         if (PsiUtils.isEventBusPost(psiElement)) {
@@ -110,28 +109,8 @@ public class LineMarkerProviderJava implements com.intellij.codeInsight.daemon.L
         return null;
     }
 
-
     @Override
-    public void collectSlowLineMarkers(@NotNull List<PsiElement> list, @NotNull Collection<LineMarkerInfo> collection) {
-//        for (PsiElement psiElement : list) {
-//
-//            ProgressManager.checkCanceled();
-//
-//            if (PsiUtils.isJava(psiElement)) {
-//
-//                if (PsiUtils.isEventBusPost(psiElement)) {
-//
-////                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-////                            Pass.UPDATE_ALL, null, SHOW_RECEIVERS,
-////                            GutterIconRenderer.Alignment.LEFT);
-//                    collection.add(getLineMarkerInfo(psiElement));
-//                } else if (PsiUtils.isEventBusReceiver(psiElement)) {
-//                    LineMarkerInfo info = new LineMarkerInfo<PsiElement>(psiElement, psiElement.getTextRange(), Constants.ICON,
-//                            Pass.UPDATE_ALL, null, SHOW_SENDERS,
-//                            GutterIconRenderer.Alignment.LEFT);
-//                    collection.add(getLineMarkerInfo(psiElement));
-//                }
-//            }
-//        }
+    public void collectSlowLineMarkers(@NotNull List<? extends PsiElement> list, @NotNull Collection<? super LineMarkerInfo<?>> collection) {
+
     }
 }

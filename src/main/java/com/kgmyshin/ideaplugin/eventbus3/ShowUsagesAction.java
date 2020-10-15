@@ -906,7 +906,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         String title = presentation.getTabText();
         String fullTitle = getFullTitle(usages, title, shouldShowMoreSeparator, nodes.size() - (shouldShowMoreSeparator ? 1 : 0), findUsagesInProgress);
 
-        ((AbstractPopup)popup).setCaption(fullTitle);
+        popup.setCaption(fullTitle);
 
         List<UsageNode> data = collectData(usages, nodes, usageView, presentation);
         MyModel tableModel = setTableModel(table, usageView, data);
@@ -1023,7 +1023,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
     }
 
     @Override
-    public void update(AnActionEvent e){
+    public void update(@NotNull AnActionEvent e){
         FindUsagesInFileAction.updateFindUsagesAction(e);
     }
 
@@ -1074,7 +1074,7 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         }
 
         @Override
-        public Object getData(@NonNls String dataId) {
+        public Object getData(@NotNull @NonNls String dataId) {
             if (LangDataKeys.PSI_ELEMENT.is(dataId)) {
                 final int[] selected = getSelectedRows();
                 if (selected.length == 1) {

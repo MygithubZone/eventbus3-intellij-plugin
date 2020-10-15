@@ -6,7 +6,7 @@
     </vendor>
 
     <description><![CDATA[
-    2020.0.0 即将适配 Kotlin,建议升级到 Android Studio 4.1及以上以使用最新版本<br/>
+    2020.* 即将适配 Kotlin,建议升级到 Android Studio 4.1及以上以使用最新版本<br/>
 
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
     <ul>
@@ -66,7 +66,7 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.java</depends>
-<!--    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>-->
-    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>
+    <!--    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>-->
+    <!--    <depends>org.jetbrains.kotlin</depends>-->
 
 </idea-plugin>
