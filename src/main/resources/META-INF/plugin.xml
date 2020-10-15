@@ -67,6 +67,6 @@
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.java</depends>
     <!--    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>-->
-    <!--    <depends>org.jetbrains.kotlin</depends>-->
+    <depends>org.jetbrains.kotlin</depends>
 
 </idea-plugin>
