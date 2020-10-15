@@ -1,13 +1,13 @@
 <idea-plugin>
     <id>com.likfe.ideaplugin.eventbus3</id>
     <name>EventBus3-IDEA</name>
-    <!--<version>1.2.5</version>-->
     <vendor email="ys743276112@gmail.com" url="https://github.com/likfe/eventbus3-intellij-plugin">
         eventbus3-intellij-plugin
     </vendor>
 
     <description><![CDATA[
-    2.0.0 全新的版本，即将适配 Kotlin<br/>
+    2019.0.0 版本，适配到 IDEA 2019.*<br/>
+    2020.0.0 即将适配 Kotlin,建议升级到 Android Studio 4.1及以上以使用最新版本<br/>
 
     Provides actions which allow you quickly move around the event bus.(now it only for EventBus 3.x)
     <ul>
@@ -35,14 +35,8 @@
     ]]>
     </change-notes>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
-    <idea-version since-build="136.000"/>
-
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+    <!-- please see https://jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <!--    <idea-version since-build="201.6"/>-->
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
@@ -67,9 +61,13 @@
     </actions>
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.java</depends>
-    <!--<depends>com.intellij.modules.androidstudio</depends>-->
+<!--    <depends optional="true" config-file="">org.jetbrains.kotlin</depends>-->
     <depends optional="true" config-file="">org.jetbrains.kotlin</depends>
 
 </idea-plugin>

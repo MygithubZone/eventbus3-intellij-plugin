@@ -29,7 +29,6 @@ import com.intellij.find.actions.UsageListCellRenderer;
 import com.intellij.find.findUsages.*;
 import com.intellij.find.impl.FindManagerImpl;
 import com.intellij.icons.AllIcons;
-import com.intellij.ide.DataManager;
 import com.intellij.ide.util.gotoByName.ModelDiff;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.*;
@@ -140,11 +139,11 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         final UsageViewSettings usageViewSettings = UsageViewSettings.getInstance();
         myUsageViewSettings = new UsageViewSettings();
         myUsageViewSettings.loadState(usageViewSettings);
-        myUsageViewSettings.GROUP_BY_FILE_STRUCTURE = false;
-        myUsageViewSettings.GROUP_BY_MODULE = false;
-        myUsageViewSettings.GROUP_BY_PACKAGE = false;
-        myUsageViewSettings.GROUP_BY_USAGE_TYPE = false;
-        myUsageViewSettings.GROUP_BY_SCOPE = false;
+        myUsageViewSettings.setGroupByFileStructure(false);
+        myUsageViewSettings.setGroupByModule(false);
+        myUsageViewSettings.setGroupByPackage(false);
+        myUsageViewSettings.setGroupByUsageType(false);
+        myUsageViewSettings.setGroupByScope(false);
     }
 
     public ShowUsagesAction(Filter filter) {
@@ -154,11 +153,12 @@ public class ShowUsagesAction extends AnAction implements PopupAction{
         final UsageViewSettings usageViewSettings = UsageViewSettings.getInstance();
         myUsageViewSettings = new UsageViewSettings();
         myUsageViewSettings.loadState(usageViewSettings);
-        myUsageViewSettings.GROUP_BY_FILE_STRUCTURE = false;
-        myUsageViewSettings.GROUP_BY_MODULE = false;
-        myUsageViewSettings.GROUP_BY_PACKAGE = false;
-        myUsageViewSettings.GROUP_BY_USAGE_TYPE = false;
-        myUsageViewSettings.GROUP_BY_SCOPE = false;
+        myUsageViewSettings.setGroupByFileStructure(false);
+        myUsageViewSettings.setGroupByModule(false);
+        myUsageViewSettings.setGroupByPackage(false);
+        myUsageViewSettings.setGroupByUsageType(false);
+        myUsageViewSettings.setGroupByScope(false);
+
     }
 
 
