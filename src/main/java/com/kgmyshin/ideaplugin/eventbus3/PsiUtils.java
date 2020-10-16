@@ -68,6 +68,20 @@ public class PsiUtils {
                 }
             }
 
+            //xx.post()/xx.postSticky()，存在误判的可能
+            if (psiElement instanceof PsiCallExpression) {
+                PsiCallExpression callExpression = (PsiCallExpression) psiElement;
+                PsiMethod method = callExpression.resolveMethod();
+                if (method != null) {
+                    String name = method.getName();
+                    PsiElement parent = method.getParent();
+                    if ((safeEquals(Constants.FUN_NAME, name) || safeEquals(Constants.FUN_NAME2, name)) && parent instanceof PsiClass) {
+                        PsiClass implClass = (PsiClass) parent;
+                        return isEventBusClass(implClass) || isSuperClassEventBus(implClass);
+                    }
+                }
+            }
+
         } else if (psiElement.getLanguage().is(Language.findLanguageByID("kotlin"))) {
 
             if (psiElement instanceof KtDotQualifiedExpression) {
@@ -84,6 +98,23 @@ public class PsiUtils {
                         }
                     }
                 }
+            }
+        }
+        return false;
+    }
+
+    private static boolean isEventBusClass(PsiClass psiClass) {
+        return safeEquals(psiClass.getName(), Constants.FUN_EVENT_CLASS_NAME);
+    }
+
+    private static boolean isSuperClassEventBus(PsiClass psiClass) {
+        PsiClass[] supers = psiClass.getSupers();
+        if (supers.length == 0) {
+            return false;
+        }
+        for (PsiClass superClass : supers) {
+            if (safeEquals(superClass.getName(), Constants.FUN_EVENT_CLASS_NAME)) {
+                return true;
             }
         }
         return false;
