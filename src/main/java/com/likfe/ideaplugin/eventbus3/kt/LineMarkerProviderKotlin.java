@@ -1,4 +1,4 @@
-package com.kgmyshin.ideaplugin.eventbus3.kt;
+package com.likfe.ideaplugin.eventbus3.kt;
 
 import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
@@ -18,10 +18,10 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.ui.awt.RelativePoint;
-import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
-import com.kgmyshin.ideaplugin.eventbus3.ShowUsagesAction;
-import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
-import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
+import com.likfe.ideaplugin.eventbus3.PsiUtils;
+import com.likfe.ideaplugin.eventbus3.ShowUsagesAction;
+import com.likfe.ideaplugin.eventbus3.utils.Constants;
+import com.likfe.ideaplugin.eventbus3.utils.MLog;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.kotlin.idea.findUsages.KotlinFindUsagesHandlerFactory;

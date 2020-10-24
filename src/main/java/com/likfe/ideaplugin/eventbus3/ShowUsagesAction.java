@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kgmyshin.ideaplugin.eventbus3;
+package com.likfe.ideaplugin.eventbus3;
 
 import com.intellij.CommonBundle;
 import com.intellij.codeInsight.hint.HintManager;

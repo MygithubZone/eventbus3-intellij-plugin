@@ -1,4 +1,4 @@
-package com.kgmyshin.ideaplugin.eventbus3;
+package com.likfe.ideaplugin.eventbus3;
 
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
@@ -8,8 +8,8 @@ import com.intellij.psi.*;
 import com.intellij.psi.impl.source.tree.java.PsiIdentifierImpl;
 import com.intellij.psi.impl.source.tree.java.PsiMethodCallExpressionImpl;
 import com.intellij.psi.impl.source.tree.java.PsiReferenceExpressionImpl;
-import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
-import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
+import com.likfe.ideaplugin.eventbus3.utils.Constants;
+import com.likfe.ideaplugin.eventbus3.utils.MLog;
 import org.jetbrains.kotlin.psi.*;
 
 /**

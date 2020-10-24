@@ -1,22 +1,23 @@
-package com.kgmyshin.ideaplugin.eventbus3.kt;
+package com.likfe.ideaplugin.eventbus3.java;
 
 import com.intellij.psi.*;
-import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.usages.Usage;
 import com.intellij.usages.UsageInfo2UsageAdapter;
-import com.kgmyshin.ideaplugin.eventbus3.Filter;
-import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
-import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
+import com.likfe.ideaplugin.eventbus3.Filter;
+import com.likfe.ideaplugin.eventbus3.PsiUtils;
 
 /**
- * Created by likfe ( https://github.com/likfe/ ) in 2018/03/06
+ * Created by kgmyshin on 2015/06/07.
  *
+ * modify by likfe ( https://github.com/likfe/ ) in 2016/09/05
+ *
+ * add try-catch
  */
-public class SenderFilterKotlin implements Filter {
+public class SenderFilterJava implements Filter {
 
-    private final LeafPsiElement eventClass;
+    private final PsiClass eventClass;
 
-    SenderFilterKotlin(LeafPsiElement eventClass) {
+    public SenderFilterJava(PsiClass eventClass) {
         this.eventClass = eventClass;
     }
 
@@ -29,9 +30,7 @@ public class SenderFilterKotlin implements Filter {
                 PsiMethodCallExpression callExpression = (PsiMethodCallExpression) element;
                 PsiType[] types = callExpression.getArgumentList().getExpressionTypes();
                 for (PsiType type : types) {
-                    MLog.debug("shouldShow: 01 : " + PsiUtils.getClass(type).getName());
-                    MLog.debug("shouldShow: 02 : " + eventClass.getText());
-                    if (PsiUtils.getClass(type).getName().equals(eventClass.getText())) {
+                    if (PsiUtils.getClass(type).getName().equals(eventClass.getName())) {
                         // pattern : EventBus.getDefault().post(new Event());
                         return true;
                     }
@@ -49,15 +48,13 @@ public class SenderFilterKotlin implements Filter {
                                         PsiLocalVariable localVariable = (PsiLocalVariable) variable;
                                         PsiClass psiClass = PsiUtils.getClass(localVariable.getTypeElement().getType());
                                         try {
-                                            MLog.debug("shouldShow: 03 : " + psiClass.getName());
-                                            MLog.debug("shouldShow: 04 : " + eventClass.getText());
-                                            if (psiClass.getName().equals(eventClass.getText())) {
+                                            if (psiClass.getName().equals(eventClass.getName())) {
                                                 // pattern :
                                                 //   Event event = new Event();
                                                 //   EventBus.getDefault().post(event);
                                                 return true;
                                             }
-                                        } catch (NullPointerException e) {
+                                        }catch (NullPointerException e){
                                             System.out.println(e.toString());
                                         }
 

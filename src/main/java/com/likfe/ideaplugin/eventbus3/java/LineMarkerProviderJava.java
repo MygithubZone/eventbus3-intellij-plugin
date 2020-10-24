@@ -1,4 +1,4 @@
-package com.kgmyshin.ideaplugin.eventbus3.java;
+package com.likfe.ideaplugin.eventbus3.java;
 
 import com.intellij.codeHighlighting.Pass;
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler;
@@ -9,11 +9,10 @@ import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.ui.awt.RelativePoint;
-import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
-import com.kgmyshin.ideaplugin.eventbus3.ShowUsagesAction;
-import com.kgmyshin.ideaplugin.eventbus3.utils.Constants;
+import com.likfe.ideaplugin.eventbus3.PsiUtils;
+import com.likfe.ideaplugin.eventbus3.ShowUsagesAction;
+import com.likfe.ideaplugin.eventbus3.utils.Constants;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.event.MouseEvent;
 import java.util.Collection;

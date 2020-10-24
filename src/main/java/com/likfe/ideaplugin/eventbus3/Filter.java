@@ -1,4 +1,4 @@
-package com.kgmyshin.ideaplugin.eventbus3;
+package com.likfe.ideaplugin.eventbus3;
 
 import com.intellij.usages.Usage;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kgmyshin.ideaplugin.eventbus3;
+package com.likfe.ideaplugin.eventbus3;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;

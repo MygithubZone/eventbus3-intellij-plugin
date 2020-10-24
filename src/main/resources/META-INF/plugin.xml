@@ -41,10 +41,10 @@
         <!-- Add your extensions here -->
         <codeInsight.lineMarkerProvider
                 language="JAVA"
-                implementationClass="com.kgmyshin.ideaplugin.eventbus3.java.LineMarkerProviderJava"/>
+                implementationClass="com.likfe.ideaplugin.eventbus3.java.LineMarkerProviderJava"/>
         <codeInsight.lineMarkerProvider
                 language="kotlin"
-                implementationClass="com.kgmyshin.ideaplugin.eventbus3.kt.LineMarkerProviderKotlin"/>
+                implementationClass="com.likfe.ideaplugin.eventbus3.kt.LineMarkerProviderKotlin"/>
     </extensions>
 
     <application-components>

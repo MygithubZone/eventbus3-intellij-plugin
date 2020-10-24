@@ -1,4 +1,4 @@
-package com.kgmyshin.ideaplugin.eventbus3.utils;
+package com.likfe.ideaplugin.eventbus3.utils;
 
 import com.intellij.openapi.diagnostic.Logger;
 import org.apache.log4j.Level;

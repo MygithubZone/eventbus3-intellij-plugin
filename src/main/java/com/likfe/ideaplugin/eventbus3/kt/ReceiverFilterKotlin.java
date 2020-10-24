@@ -1,11 +1,11 @@
-package com.kgmyshin.ideaplugin.eventbus3.kt;
+package com.likfe.ideaplugin.eventbus3.kt;
 
 import com.intellij.psi.*;
 import com.intellij.usages.Usage;
 import com.intellij.usages.UsageInfo2UsageAdapter;
-import com.kgmyshin.ideaplugin.eventbus3.Filter;
-import com.kgmyshin.ideaplugin.eventbus3.PsiUtils;
-import com.kgmyshin.ideaplugin.eventbus3.utils.MLog;
+import com.likfe.ideaplugin.eventbus3.Filter;
+import com.likfe.ideaplugin.eventbus3.PsiUtils;
+import com.likfe.ideaplugin.eventbus3.utils.MLog;
 
 /**
  * Created by kgmyshin on 2015/06/07.
